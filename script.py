@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-def check_id_length():
+def check_id_length(): #olist_customers_dataset
     #make sure all data have id length of 32 chars -> sql constraint
     df = pd.read_csv('./dataset/olist_customers_dataset.csv')
     print(df.head(5))

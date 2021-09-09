@@ -32,5 +32,22 @@ def etl(csv_file, db_file):
 
 
 if __name__ == '__main__':
+    #insert customers dataset
     count = etl('./dataset/olist_customers_dataset.csv', './db_files/olist_customers_dataset.db')
-    print(f'inserted {count} records')
+    print(f'inserted {count} records from olist_customers_dataset.csv')
+
+    #insert geolocation dataset
+
+    #insert order items dataset
+
+    #insert order payments dataset
+
+    #insert order reviews dataset
+
+    #insert orders dataset
+
+    #insert product dataset
+
+    #insert seller dataset
+
+    #insert product category name translation
