@@ -9,22 +9,33 @@ def check_id_length(): #olist_customers_dataset
     df = df.assign(cus_uid_length = (df['customer_unique_id']).apply(len))
 
     #df = df.assign(zip_code_length = (df['customer_zip_code_prefix']).apply(str).apply(len))
+    print('head(20):')
     print(df.head(20))
-    return df.describe()
+    print()
+    print()
+    return df
 
 
 def check_geo_length():
     df = pd.read_csv('./dataset/olist_geolocation_dataset.csv')
+    print('head(5):')
     print(df.head(5))
+    print()
+    print()
 
+    #check len of each column
     for i in df.columns:
-        df = df.assign(l1 = (df[i].apply(len)))
+        df[i+'_len'] = df[i].apply(str).apply(len)
 
+    print('head(10):')
     print(df.head(10))
-    return df.describe()
+    print()
+    print()
+    return df
 
 if __name__ == '__main__':
-    print(check_id_length())
+    #print(check_id_length().describe())
+    print(check_geo_length().describe())
 
 
 #"geolocation_zip_code_prefix","geolocation_lat","geolocation_lng","geolocation_city","geolocation_state"

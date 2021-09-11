@@ -17,13 +17,12 @@ def iter_records(csv_file):
 
 #queries
 sql = 'SELECT distance FROM rides WHERE vendor = :vendor'
-insert_sql = '''INSERT INTO olist_customers (customer_id, customer_unique_id, customer_zip_code_prefix, customer_city, customer_state)
-    VALUES (?,?,?,?,?)'''
-
-#"geolocation_zip_code_prefix","geolocation_lat","geolocation_lng","geolocation_city","geolocation_state"
+insert_sql_customer = '''INSERT INTO olist_customers (customer_id, customer_unique_id, customer_zip_code_prefix, customer_city, customer_state) VALUES (?,?,?,?,?)'''
+insert_sql_geolocation = '''INSERT INTO olist_geolocation (geolocation_zip_code_prefix, geolocation_lat, geolocation_lng, geolocation_city, geolocation_state) VALUES (?,?,?,?,?)'''
 
 
-def etl(csv_file, db_file):
+
+def etl(csv_file, db_file, insert_sql):
     with sqlite3.connect(db_file) as db:
         cur = db.cursor()
         with open('schema.sql') as fp:
@@ -35,11 +34,12 @@ def etl(csv_file, db_file):
 
 if __name__ == '__main__':
     #insert customers dataset
-    count = etl('./dataset/olist_customers_dataset.csv', './db_files/olist_customers_dataset.db')
+    count = etl('./dataset/olist_customers_dataset.csv', './db_files/olist_customers_dataset.db', insert_sql_customer)
     print(f'inserted {count} records from olist_customers_dataset.csv')
 
     #insert geolocation dataset
-
+    count = etl('./dataset/olist_geolocation_dataset.csv', './db_files/olist_geolocation_dataset.db', insert_sql_geolocation)
+    print(f'inserted {count} records from olist_geolocation_dataset.csv')
     #insert order items dataset
 
     #insert order payments dataset

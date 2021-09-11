@@ -5,3 +5,11 @@ CREATE TABLE IF NOT EXISTS olist_customers (
     customer_city VARCHAR(128),
     customer_state VARCHAR(2)
 );
+
+CREATE TABLE IF NOT EXISTS olist_geolocation (
+    geolocation_zip_code_prefix VARCHAR(5),
+    geolocation_lat DECIMAL(17,15),
+    geolocation_lng DECIMAL(18,15),
+    geolocation_city VARCHAR(128),
+    geolocation_state VARCHAR(2)
+);
