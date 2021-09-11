@@ -1,5 +1,3 @@
-"""Using Pandas to work with databases"""
-
 import pandas as pd
 
 def check_id_length(): #olist_customers_dataset
@@ -15,7 +13,18 @@ def check_id_length(): #olist_customers_dataset
     return df.describe()
 
 
+def check_geo_length():
+    df = pd.read_csv('./dataset/olist_geolocation_dataset.csv')
+    print(df.head(5))
 
+    for i in df.columns:
+        df = df.assign(l1 = (df[i].apply(len)))
+
+    print(df.head(10))
+    return df.describe()
 
 if __name__ == '__main__':
     print(check_id_length())
+
+
+#"geolocation_zip_code_prefix","geolocation_lat","geolocation_lng","geolocation_city","geolocation_state"

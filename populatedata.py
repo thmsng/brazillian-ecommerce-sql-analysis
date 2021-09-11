@@ -20,6 +20,8 @@ sql = 'SELECT distance FROM rides WHERE vendor = :vendor'
 insert_sql = '''INSERT INTO olist_customers (customer_id, customer_unique_id, customer_zip_code_prefix, customer_city, customer_state)
     VALUES (?,?,?,?,?)'''
 
+#"geolocation_zip_code_prefix","geolocation_lat","geolocation_lng","geolocation_city","geolocation_state"
+
 
 def etl(csv_file, db_file):
     with sqlite3.connect(db_file) as db:
