@@ -25,7 +25,7 @@ insert_sql_order_reviews = '''INSERT INTO olist_order_reviews (review_id, order_
 insert_sql_orders = '''INSERT INTO olist_orders (order_id, customer_id, order_status, order_purchase_timestamp, order_approved_at, order_delivered_carrier_date, order_delivered_customer_date, order_estimated_delivery_date) VALUES (?,?,?,?,?,?,?,?)'''
 insert_sql_products = '''INSERT INTO olist_products (product_id, product_category_name, product_name_lenght, product_description_lenght, product_photos_qty, product_weight_g, product_length_cm, product_height_cm, product_width_cm) VALUES (?,?,?,?,?,?,?,?,?)'''
 insert_sql_sellers = '''INSERT INTO olist_sellers (seller_id, seller_zip_code_prefix, seller_city, seller_state) VALUES (?,?,?,?)'''
-insert_sql_product_category_name_translation = '''INSERT INTO product_category_name_translation (﻿product_category_name,product_category_name_english) VALUES (?,?)'''
+insert_sql_translation = '''INSERT INTO translation (﻿product_category_name, product_category_name_english) VALUES (?,?)'''
 
 
 def etl(csv_file, db_file, insert_sql):
@@ -78,38 +78,38 @@ if __name__ == '__main__':
 
 
 
-        #insert customers dataset
-        count = etl('./dataset/olist_customers_dataset.csv', 'olist.db', insert_sql_customer)
-        print(f'inserted {count} records from olist_customers_dataset.csv')
+    #insert customers dataset
+    count = etl('./dataset/olist_customers_dataset.csv', 'olist.db', insert_sql_customer)
+    print(f'inserted {count} records from olist_customers_dataset.csv')
 
-        #insert geolocation dataset
-        count = etl('./dataset/olist_geolocation_dataset.csv', 'olist.db', insert_sql_geolocation)
-        print(f'inserted {count} records from olist_geolocation_dataset.csv')
+    #insert geolocation dataset
+    count = etl('./dataset/olist_geolocation_dataset.csv', 'olist.db', insert_sql_geolocation)
+    print(f'inserted {count} records from olist_geolocation_dataset.csv')
 
-        #insert order items dataset
-        count = etl('./dataset/olist_order_items_dataset.csv', 'olist.db', insert_sql_order_items)
-        print(f'inserted {count} records from olist_order_items_dataset.csv')
+    #insert order items dataset
+    count = etl('./dataset/olist_order_items_dataset.csv', 'olist.db', insert_sql_order_items)
+    print(f'inserted {count} records from olist_order_items_dataset.csv')
 
-        #insert order payments dataset
-        count = etl('./dataset/olist_order_payments_dataset.csv', 'olist.db', insert_sql_order_payments)
-        print(f'inserted {count} records from olist_order_payments_dataset.csv')
+    #insert order payments dataset
+    count = etl('./dataset/olist_order_payments_dataset.csv', 'olist.db', insert_sql_order_payments)
+    print(f'inserted {count} records from olist_order_payments_dataset.csv')
 
-        #insert order reviews dataset
-        count = etl('./dataset/olist_order_reviews_dataset.csv', 'olist.db', insert_sql_order_reviews)
-        print(f'inserted {count} records from olist_order_reviews_dataset.csv')
+    #insert order reviews dataset
+    count = etl('./dataset/olist_order_reviews_dataset.csv', 'olist.db', insert_sql_order_reviews)
+    print(f'inserted {count} records from olist_order_reviews_dataset.csv')
 
-        #insert orders dataset
-        count = etl('./dataset/olist_orders_dataset.csv', 'olist.db', insert_sql_orders)
-        print(f'inserted {count} records from olist_orders_dataset.csv')
+    #insert orders dataset
+    count = etl('./dataset/olist_orders_dataset.csv', 'olist.db', insert_sql_orders)
+    print(f'inserted {count} records from olist_orders_dataset.csv')
 
-        #insert product dataset
-        count = etl('./dataset/olist_products_dataset.csv', 'olist.db', insert_sql_products)
-        print(f'inserted {count} records from olist_products_dataset.csv')
+    #insert product dataset
+    count = etl('./dataset/olist_products_dataset.csv', 'olist.db', insert_sql_products)
+    print(f'inserted {count} records from olist_products_dataset.csv')
 
-        #insert seller dataset
-        count = etl('./dataset/olist_sellers_dataset.csv', 'olist.db', insert_sql_sellers)
-        print(f'inserted {count} records from olist_serllers_dataset.csv')
+    #insert seller dataset
+    count = etl('./dataset/olist_sellers_dataset.csv', 'olist.db', insert_sql_sellers)
+    print(f'inserted {count} records from olist_serllers_dataset.csv')
 
-        #insert product category name translation
-        count = etl('./dataset/product_category_name_translation.csv', 'olist.db', insert_sql_product_category_name_translation)
-        print(f'inserted {count} records from product_category_name_translation.csv')
+    #insert product category name translation
+    #count = etl('./dataset/product_category_name_translation.csv', 'olist.db', insert_sql_translation)
+    #print(f'inserted {count} records from product_category_name_translation.csv')}}

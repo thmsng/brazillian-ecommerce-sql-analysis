@@ -19,7 +19,7 @@ def check_length(csv_file):
     df = pd.read_csv(csv_file)
     print('head(5):')
     print(df.head(5))
-    print()
+    print(df.columns.values)
     print()
 
     #check len of each column
